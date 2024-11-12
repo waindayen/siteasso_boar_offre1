@@ -1,0 +1,62 @@
+---
+const { project } = Astro.props;
+
+const formattedGoal = project.goal.toLocaleString('fr-FR');
+const formattedRaised = project.raised.toLocaleString('fr-FR');
+---
+
+<section class="relative pt-32 pb-24 bg-gradient-to-br from-emerald-900 to-emerald-700">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-block text-emerald-300 font-medium tracking-wider text-sm mb-4">
+          SOUTENIR CE PROJET
+        </span>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+          {project.title}
+        </h1>
+        <p class="text-xl text-emerald-100 mb-8">
+          {project.description}
+        </p>
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-8">
+          <div class="flex justify-between text-sm text-emerald-100 mb-2">
+            <span>{formattedRaised}€ collectés</span>
+            <span>Objectif : {formattedGoal}€</span>
+          </div>
+          <div class="w-full bg-white/20 rounded-full h-2 mb-4">
+            <div
+              class="bg-emerald-400 h-2 rounded-full"
+              style={`width: ${project.progress}%`}
+            ></div>
+          </div>
+          <p class="text-emerald-100">
+            Encore {(project.goal - project.raised).toLocaleString('fr-FR')}€ nécessaires
+          </p>
+        </div>
+        <a
+          href="#soutenir"
+          class="inline-block bg-white text-emerald-800 px-8 py-4 rounded-full text-lg font-medium hover:bg-emerald-100 transition-colors duration-300"
+        >
+          Je soutiens ce projet
+          <span class="ml-2">→</span>
+        </a>
+      </div>
+      <div class="relative">
+        <img
+          src={project.image}
+          alt={project.title}
+          class="rounded-xl shadow-2xl"
+        />
+        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
+          <div class="flex items-center gap-4">
+            <div class="text-4xl">📍</div>
+            <div>
+              <div class="text-2xl font-bold text-emerald-800">{project.location}</div>
+              <div class="text-gray-600">Lieu du projet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

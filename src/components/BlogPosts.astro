@@ -1,0 +1,81 @@
+---
+const posts = [
+  {
+    title: "Impact de notre programme éducatif au Sénégal",
+    excerpt: "Découvrez comment notre projet d'école a transformé la vie de 180 enfants et de leur communauté.",
+    image: "/blog/education-senegal.jpg",
+    category: "Éducation",
+    date: "2024-01-15",
+    author: {
+      name: "Marie Dubois",
+      role: "Responsable Projets Éducatifs"
+    }
+  },
+  {
+    title: "5000 arbres plantés à Madagascar",
+    excerpt: "Premier bilan de notre programme de reforestation et ses effets sur la biodiversité locale.",
+    image: "/blog/reforestation-madagascar.jpg",
+    category: "Environnement",
+    date: "2024-01-10",
+    author: {
+      name: "Pierre Martin",
+      role: "Coordinateur Environnement"
+    }
+  },
+  {
+    title: "L'importance de l'accès à l'eau potable",
+    excerpt: "Comment nos projets d'accès à l'eau transforment le quotidien des communautés.",
+    image: "/blog/water-access.jpg",
+    category: "Eau",
+    date: "2024-01-05",
+    author: {
+      name: "Sophie Lambert",
+      role: "Chargée de Projets"
+    }
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-3 gap-8">
+      {posts.map((post) => (
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img
+            src={post.image}
+            alt={post.title}
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">
+                {post.category}
+              </span>
+              <span class="text-gray-500 text-sm">
+                {new Date(post.date).toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{post.title}</h3>
+            <p class="text-gray-600 mb-4">{post.excerpt}</p>
+            <div class="flex items-center gap-3 mb-4">
+              <div>
+                <div class="font-medium text-gray-900">{post.author.name}</div>
+                <div class="text-sm text-gray-500">{post.author.role}</div>
+              </div>
+            </div>
+            <a
+              href={`/blog/${post.title.toLowerCase().replace(/ /g, '-')}`}
+              class="text-emerald-600 font-medium hover:text-emerald-700"
+            >
+              Lire la suite →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

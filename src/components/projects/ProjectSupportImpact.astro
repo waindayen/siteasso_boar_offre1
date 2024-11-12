@@ -1,0 +1,54 @@
+---
+const { project } = Astro.props;
+
+const impacts = [
+  {
+    icon: "🎯",
+    title: "Le défi",
+    content: project.details.challenge
+  },
+  {
+    icon: "💡",
+    title: "Notre solution",
+    content: project.details.solution
+  },
+  {
+    icon: "✨",
+    title: "L'impact",
+    content: project.details.impact
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">
+        Pourquoi soutenir ce projet ?
+      </h2>
+      <p class="text-gray-600 text-lg">
+        Découvrez l'impact concret de votre soutien sur le terrain
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {impacts.map((impact) => (
+        <div class="bg-emerald-50 rounded-xl p-8">
+          <div class="text-4xl mb-4">{impact.icon}</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{impact.title}</h3>
+          <p class="text-gray-600">{impact.content}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center">
+      <a
+        href="#soutenir"
+        class="inline-block bg-emerald-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-emerald-700 transition-colors duration-300"
+      >
+        Je soutiens ce projet
+        <span class="ml-2">→</span>
+      </a>
+    </div>
+  </div>
+</section>

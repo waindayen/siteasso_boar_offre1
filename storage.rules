@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /projects/{imageId} {
+      // Autoriser la lecture pour tous
+      allow read: if true;
+      
+      // Autoriser l'upload uniquement pour les utilisateurs authentifiés
+      allow write: if request.auth != null 
+        && request.resource.size < 5 * 1024 * 1024 // Limite de 5MB
+        && request.resource.contentType.matches('image/.*'); // Uniquement les images
+    }
+    
+    // Règles par défaut
+    match /{allPaths=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

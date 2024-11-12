@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectDetails from '../../components/ProjectDetails.astro';
+import ProjectDonation from '../../components/ProjectDonation.astro';
+import ProjectUpdates from '../../components/ProjectUpdates.astro';
+import ProjectGallery from '../../components/ProjectGallery.astro';
+import { projects } from '../../data/projects';
+import type { Project } from '../../data/projects';
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id.toString() },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={project.title}>
+  <main class="pt-32">
+    <ProjectDetails project={project} />
+    <ProjectDonation project={project} />
+    <ProjectGallery images={project.gallery} />
+    <ProjectUpdates updates={project.updates} />
+  </main>
+</Layout>

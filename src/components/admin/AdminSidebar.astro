@@ -1,0 +1,61 @@
+---
+const menuItems = [
+  {
+    title: "Tableau de bord",
+    icon: "📊",
+    path: "/admin"
+  },
+  {
+    title: "Projets",
+    icon: "🎯",
+    path: "/admin/projets"
+  },
+  {
+    title: "Dons",
+    icon: "💰",
+    path: "/admin/dons"
+  },
+  {
+    title: "Bénévoles",
+    icon: "🤝",
+    path: "/admin/benevoles"
+  },
+  {
+    title: "Partenaires",
+    icon: "🤝",
+    path: "/admin/partenaires"
+  },
+  {
+    title: "Blog",
+    icon: "📝",
+    path: "/admin/blog"
+  },
+  {
+    title: "Utilisateurs",
+    icon: "👥",
+    path: "/admin/utilisateurs"
+  },
+  {
+    title: "Paramètres",
+    icon: "⚙️",
+    path: "/admin/parametres"
+  }
+];
+---
+
+<aside class="w-64 bg-emerald-900 text-white">
+  <div class="p-6">
+    <h1 class="text-xl font-bold">EcoSolidaire Admin</h1>
+  </div>
+  <nav class="mt-6">
+    {menuItems.map((item) => (
+      <a
+        href={item.path}
+        class="flex items-center px-6 py-3 text-gray-100 hover:bg-emerald-800 transition-colors duration-200"
+      >
+        <span class="mr-3">{item.icon}</span>
+        {item.title}
+      </a>
+    ))}
+  </nav>
+</aside>

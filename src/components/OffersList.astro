@@ -1,0 +1,125 @@
+---
+const jobs = [
+  {
+    title: "Chef·fe de Projet Éducation",
+    type: "CDI",
+    location: "Paris",
+    department: "Projets",
+    description: "Pilotage des programmes éducatifs et coordination avec nos partenaires locaux",
+    requirements: [
+      "5 ans d'expérience en gestion de projets",
+      "Expérience dans le secteur humanitaire",
+      "Maîtrise de l'anglais",
+      "Disponibilité pour voyager"
+    ],
+    missions: [
+      "Conception et suivi des programmes éducatifs",
+      "Gestion des relations partenaires",
+      "Reporting et évaluation d'impact",
+      "Management d'équipe"
+    ]
+  },
+  {
+    title: "Responsable Communication",
+    type: "CDI",
+    location: "Paris",
+    department: "Communication",
+    description: "Élaboration et mise en œuvre de la stratégie de communication",
+    requirements: [
+      "3 ans d'expérience en communication",
+      "Maîtrise des réseaux sociaux",
+      "Excellentes capacités rédactionnelles",
+      "Créativité et autonomie"
+    ],
+    missions: [
+      "Gestion des réseaux sociaux",
+      "Production de contenus",
+      "Relations presse",
+      "Organisation d'événements"
+    ]
+  },
+  {
+    title: "Chargé·e de Mécénat",
+    type: "CDI",
+    location: "Paris",
+    department: "Développement",
+    description: "Développement des partenariats entreprises et collecte de fonds",
+    requirements: [
+      "3 ans d'expérience en fundraising",
+      "Excellent relationnel",
+      "Connaissance du secteur RSE",
+      "Capacité de négociation"
+    ],
+    missions: [
+      "Prospection entreprises",
+      "Montage de partenariats",
+      "Suivi des donateurs",
+      "Reporting financier"
+    ]
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid gap-8">
+      {jobs.map((job) => (
+        <div class="bg-white rounded-xl p-8 border-2 border-emerald-100 hover:border-emerald-300 transition-all duration-300">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">{job.title}</h3>
+              <div class="flex flex-wrap gap-3">
+                <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">
+                  {job.type}
+                </span>
+                <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">
+                  {job.location}
+                </span>
+                <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">
+                  {job.department}
+                </span>
+              </div>
+            </div>
+            <a
+              href={`/offres/${job.title.toLowerCase().replace(/ /g, '-')}`}
+              class="bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 transition-colors duration-300"
+            >
+              Postuler
+            </a>
+          </div>
+          
+          <p class="text-gray-600 mb-6">{job.description}</p>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-3">Missions principales</h4>
+              <ul class="space-y-2">
+                {job.missions.map((mission) => (
+                  <li class="flex items-center gap-2 text-gray-700">
+                    <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {mission}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-3">Profil recherché</h4>
+              <ul class="space-y-2">
+                {job.requirements.map((requirement) => (
+                  <li class="flex items-center gap-2 text-gray-700">
+                    <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {requirement}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+const stats = [
+  {
+    title: "Dons ce mois",
+    value: "15 750€",
+    change: "+12.3%",
+    positive: true
+  },
+  {
+    title: "Nouveaux bénévoles",
+    value: "24",
+    change: "+8.1%",
+    positive: true
+  },
+  {
+    title: "Projets actifs",
+    value: "12",
+    change: "0%",
+    positive: true
+  },
+  {
+    title: "Taux de conversion",
+    value: "3.2%",
+    change: "-0.4%",
+    positive: false
+  }
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+  {stats.map((stat) => (
+    <div class="bg-white p-6 rounded-xl shadow-sm">
+      <h3 class="text-sm font-medium text-gray-500">{stat.title}</h3>
+      <div class="mt-2 flex items-baseline">
+        <p class="text-2xl font-semibold text-gray-900">{stat.value}</p>
+        <p class={`ml-2 text-sm font-medium ${stat.positive ? 'text-green-600' : 'text-red-600'}`}>
+          {stat.change}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>

@@ -1,0 +1,37 @@
+---
+const menuItems = [
+  { title: "Accueil", path: "/" },
+  { title: "Notre Mission", path: "/mission" },
+  { title: "Projets", path: "/projets" },
+  { title: "Agir", path: "/agir" },
+  { title: "Contact", path: "/contact" }
+];
+---
+
+<nav class="bg-white/95 backdrop-blur-md fixed w-full z-20 top-0 shadow-sm">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <a href="/" class="text-2xl font-display font-bold text-emerald-700 hover:text-emerald-600 transition-colors">
+        EcoSolidaire
+      </a>
+      <div class="hidden md:flex space-x-8">
+        {
+          menuItems.map((item) => (
+            <a
+              href={item.path}
+              class="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
+            >
+              {item.title}
+            </a>
+          ))
+        }
+      </div>
+      <a
+        href="/faire-un-don"
+        class="bg-emerald-600 text-white px-6 py-2.5 rounded-full hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 font-medium"
+      >
+        Faire un don
+      </a>
+    </div>
+  </div>
+</nav>

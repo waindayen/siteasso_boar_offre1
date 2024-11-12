@@ -1,0 +1,26 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { projects } from '../../../data/projects';
+import ProjectSupportHero from '../../../components/projects/ProjectSupportHero.astro';
+import ProjectSupportOptions from '../../../components/projects/ProjectSupportOptions.astro';
+import ProjectSupportForm from '../../../components/projects/ProjectSupportForm.astro';
+import ProjectSupportImpact from '../../../components/projects/ProjectSupportImpact.astro';
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id.toString() },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`Soutenir ${project.title}`}>
+  <main>
+    <ProjectSupportHero project={project} />
+    <ProjectSupportOptions project={project} />
+    <ProjectSupportForm project={project} />
+    <ProjectSupportImpact project={project} />
+  </main>
+</Layout>

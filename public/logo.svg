@@ -1,0 +1,25 @@
+<content><?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond du logo -->
+  <rect width="200" height="50" fill="none"/>
+  
+  <!-- Symbole composé -->
+  <g transform="translate(10, 5)">
+    <!-- Feuille stylisée -->
+    <path d="M25 5C15 5 5 15 5 25C5 35 15 45 25 45C35 45 45 35 45 25C45 15 35 5 25 5ZM25 40C17.5 40 10 32.5 10 25C10 17.5 17.5 10 25 10C32.5 10 40 17.5 40 25C40 32.5 32.5 40 25 40Z" fill="#047857"/>
+    
+    <!-- Silhouette humaine -->
+    <path d="M25 15C23 15 21.5 16.5 21.5 18.5C21.5 20.5 23 22 25 22C27 22 28.5 20.5 28.5 18.5C28.5 16.5 27 15 25 15Z" fill="#047857"/>
+    <path d="M25 24C22 24 20 26 20 29V35H30V29C30 26 28 24 25 24Z" fill="#047857"/>
+  </g>
+  
+  <!-- Texte "Eco" -->
+  <text x="70" y="32" font-family="'Playfair Display', serif" font-size="24" font-weight="700" fill="#047857">
+    Eco
+  </text>
+  
+  <!-- Texte "Solidaire" -->
+  <text x="115" y="32" font-family="'Playfair Display', serif" font-size="24" font-weight="700" fill="#374151">
+    Solidaire
+  </text>
+</svg></content>

@@ -1,0 +1,90 @@
+---
+const impacts = [
+  {
+    number: "50+",
+    label: "Projets actifs",
+    icon: "🌟"
+  },
+  {
+    number: "25",
+    label: "Pays d'intervention",
+    icon: "🌍"
+  },
+  {
+    number: "100k+",
+    label: "Bénéficiaires",
+    icon: "👥"
+  },
+  {
+    number: "2M€",
+    label: "Fonds collectés",
+    icon: "💰"
+  }
+];
+
+const objectives = [
+  {
+    icon: "🎯",
+    title: "Objectifs 2024",
+    points: [
+      "Lancer 20 nouveaux projets",
+      "Étendre notre présence à 5 nouveaux pays",
+      "Doubler le nombre de bénéficiaires",
+      "Renforcer nos partenariats locaux"
+    ]
+  },
+  {
+    icon: "📊",
+    title: "Notre impact",
+    points: [
+      "90% des fonds directement aux projets",
+      "Suivi rigoureux des résultats",
+      "Évaluation continue des besoins",
+      "Transparence totale"
+    ]
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+      {impacts.map((impact) => (
+        <div class="text-center transform transition-transform duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">{impact.icon}</div>
+          <div class="text-4xl font-bold text-emerald-600 mb-2">{impact.number}</div>
+          <div class="text-gray-600 font-medium">{impact.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      {objectives.map((objective) => (
+        <div class="bg-emerald-50 rounded-xl p-8">
+          <div class="text-4xl mb-6">{objective.icon}</div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">{objective.title}</h3>
+          <ul class="space-y-4">
+            {objective.points.map((point) => (
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700">{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-20 text-center">
+      <a
+        href="/agir"
+        class="inline-block bg-emerald-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-emerald-700 transition-colors duration-300"
+      >
+        Contribuer à notre impact
+        <span class="ml-2">→</span>
+      </a>
+    </div>
+  </div>
+</section>

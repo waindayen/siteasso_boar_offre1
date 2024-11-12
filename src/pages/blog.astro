@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogHero from '../components/BlogHero.astro';
+import BlogPosts from '../components/BlogPosts.astro';
+import BlogCategories from '../components/BlogCategories.astro';
+import BlogNewsletter from '../components/BlogNewsletter.astro';
+---
+
+<Layout title="Blog">
+  <main class="pt-32">
+    <BlogHero />
+    <BlogCategories />
+    <BlogPosts />
+    <BlogNewsletter />
+  </main>
+</Layout>

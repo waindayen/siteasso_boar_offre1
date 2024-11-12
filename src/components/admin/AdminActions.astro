@@ -1,0 +1,39 @@
+---
+const quickActions = [
+  {
+    title: "Nouveau projet",
+    icon: "🎯",
+    path: "/admin/projets/nouveau"
+  },
+  {
+    title: "Nouvel article",
+    icon: "📝",
+    path: "/admin/blog/nouveau"
+  },
+  {
+    title: "Nouvelle offre",
+    icon: "💼",
+    path: "/admin/offres/nouveau"
+  },
+  {
+    title: "Nouveau partenaire",
+    icon: "🤝",
+    path: "/admin/partenaires/nouveau"
+  }
+];
+---
+
+<div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+  <h2 class="text-lg font-medium text-gray-900 mb-4">Actions rapides</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {quickActions.map((action) => (
+      <a
+        href={action.path}
+        class="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-emerald-500 hover:shadow-md transition-all duration-200"
+      >
+        <span class="text-2xl mb-2">{action.icon}</span>
+        <span class="text-sm text-gray-600">{action.title}</span>
+      </a>
+    ))}
+  </div>
+</div>

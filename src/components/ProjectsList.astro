@@ -1,0 +1,97 @@
+---
+import { projects } from '../data/projects';
+
+const categories = [
+  { id: 'all', name: 'Tous les projets' },
+  { id: 'education', name: 'Éducation' },
+  { id: 'environment', name: 'Environnement' },
+  { id: 'water', name: "Accès à l'eau" },
+  { id: 'health', name: 'Santé' }
+];
+---
+
+<section id="projets" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap gap-4 justify-center mb-12">
+      {categories.map((category) => (
+        <button
+          class="px-6 py-2 rounded-full text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 transition-colors duration-300"
+          data-category={category.id}
+        >
+          {category.name}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <div 
+          class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+          data-project
+          data-category={project.category}
+        >
+          <div class="relative">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-48 object-cover"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="bg-white/90 backdrop-blur-md text-emerald-700 px-3 py-1 rounded-full text-sm font-medium">
+                {project.location}
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+            <p class="text-gray-600 mb-4">{project.description}</p>
+            <div class="mb-4">
+              <div class="flex justify-between text-sm text-gray-600 mb-2">
+                <span>{project.raised}€ collectés</span>
+                <span>Objectif : {project.goal}€</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-emerald-500 h-2 rounded-full"
+                  style={`width: ${project.progress}%`}
+                ></div>
+              </div>
+            </div>
+            <a
+              href={`/projets/${project.id}`}
+              class="block text-center bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 transition-colors duration-300"
+            >
+              Soutenir ce projet
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+const buttons = document.querySelectorAll('[data-category]');
+const projects = document.querySelectorAll('[data-project]');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.dataset.category;
+    
+    buttons.forEach(btn => btn.classList.remove('bg-emerald-50', 'text-emerald-600'));
+    button.classList.add('bg-emerald-50', 'text-emerald-600');
+
+    if (category === 'all') {
+      projects.forEach(project => project.style.display = 'block');
+    } else {
+      projects.forEach(project => {
+        if (project.dataset.category === category) {
+          project.style.display = 'block';
+        } else {
+          project.style.display = 'none';
+        }
+      });
+    }
+  });
+});
+</script>

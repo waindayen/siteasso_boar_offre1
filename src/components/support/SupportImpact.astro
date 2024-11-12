@@ -1,0 +1,60 @@
+---
+const impacts = [
+  {
+    number: "10K+",
+    label: "Enfants soutenus",
+    description: "Accès à l'éducation et aux soins"
+  },
+  {
+    number: "50+",
+    label: "Projets réalisés",
+    description: "Dans 25 pays d'intervention"
+  },
+  {
+    number: "1000+",
+    label: "Bénévoles actifs",
+    description: "Engagés sur le terrain"
+  },
+  {
+    number: "2M€",
+    label: "Collectés en 2023",
+    description: "90% dédiés aux projets"
+  }
+];
+---
+
+<section class="py-24 bg-emerald-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">
+        L'impact de votre soutien
+      </h2>
+      <p class="text-gray-600 text-lg">
+        Chaque contribution compte et permet de réaliser des changements concrets sur le terrain
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      {impacts.map((impact) => (
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
+          <div class="text-4xl font-bold text-emerald-600 mb-2">{impact.number}</div>
+          <div class="font-bold text-gray-900 mb-2">{impact.label}</div>
+          <div class="text-gray-600 text-sm">{impact.description}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center">
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+        Nous nous engageons à utiliser vos dons de manière responsable et transparente. 
+        Chaque année, nous publions un rapport détaillé de l'utilisation des fonds.
+      </p>
+      <a
+        href="/rapports/2023"
+        class="inline-block bg-emerald-100 text-emerald-800 px-6 py-3 rounded-full hover:bg-emerald-200 transition-colors duration-300"
+      >
+        Consulter notre rapport d'impact 2023
+      </a>
+    </div>
+  </div>
+</section>

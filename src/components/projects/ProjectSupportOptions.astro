@@ -1,0 +1,67 @@
+---
+const { project } = Astro.props;
+
+const options = [
+  {
+    amount: 30,
+    impact: "1 mois de scolarité",
+    details: "Fournitures scolaires et repas"
+  },
+  {
+    amount: 50,
+    impact: "2 kits scolaires",
+    details: "Matériel pédagogique complet"
+  },
+  {
+    amount: 100,
+    impact: "Formation d'un enseignant",
+    details: "Formation et accompagnement"
+  },
+  {
+    amount: 200,
+    impact: "5 arbres plantés",
+    details: "Plantation et entretien 2 ans"
+  }
+];
+---
+
+<section id="soutenir" class="py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">
+        Choisissez votre impact
+      </h2>
+      <p class="text-gray-600 text-lg">
+        Votre don permet de soutenir concrètement ce projet et de changer des vies
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      {options.map((option) => (
+        <label class="cursor-pointer">
+          <input 
+            type="radio" 
+            name="amount" 
+            value={option.amount} 
+            class="peer sr-only" 
+            required
+          />
+          <div class="p-6 rounded-xl border-2 border-gray-200 hover:border-emerald-300 transition-all peer-checked:border-emerald-500 peer-checked:bg-emerald-50">
+            <div class="text-2xl font-bold text-gray-900 mb-2">{option.amount}€</div>
+            <div class="text-emerald-600 font-medium mb-1">{option.impact}</div>
+            <div class="text-sm text-gray-500">{option.details}</div>
+          </div>
+        </label>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <p class="text-gray-600 mb-4">
+        66% de votre don est déductible de vos impôts
+      </p>
+      <p class="text-sm text-gray-500">
+        Un don de <span id="selectedAmount">100</span>€ ne vous coûte que <span id="afterTaxAmount">34</span>€ après déduction fiscale
+      </p>
+    </div>
+  </div>
+</section>

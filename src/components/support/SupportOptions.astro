@@ -1,0 +1,106 @@
+---
+const options = [
+  {
+    icon: "💝",
+    title: "Don financier",
+    description: "Soutenez nos projets par un don ponctuel ou mensuel",
+    features: [
+      "Déduction fiscale de 66%",
+      "Don sécurisé",
+      "Reçu fiscal automatique",
+      "Suivi de l'impact"
+    ],
+    cta: {
+      text: "Faire un don",
+      link: "/faire-un-don"
+    }
+  },
+  {
+    icon: "👶",
+    title: "Parrainage",
+    description: "Changez la vie d'un enfant par un soutien régulier",
+    features: [
+      "30€/mois",
+      "Suivi personnalisé",
+      "Échanges réguliers",
+      "Impact direct"
+    ],
+    cta: {
+      text: "Parrainer un enfant",
+      link: "/parrainage"
+    }
+  },
+  {
+    icon: "🤝",
+    title: "Bénévolat",
+    description: "Donnez de votre temps et partagez vos compétences",
+    features: [
+      "Missions flexibles",
+      "Formation assurée",
+      "Expérience enrichissante",
+      "Impact concret"
+    ],
+    cta: {
+      text: "Devenir bénévole",
+      link: "/benevolat"
+    }
+  },
+  {
+    icon: "🏢",
+    title: "Entreprises",
+    description: "Engagez votre entreprise dans une démarche solidaire",
+    features: [
+      "Partenariats sur mesure",
+      "Mécénat de compétences",
+      "Journées solidaires",
+      "Visibilité RSE"
+    ],
+    cta: {
+      text: "Devenir partenaire",
+      link: "/partenariat"
+    }
+  }
+];
+---
+
+<section id="options" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">
+        Comment nous soutenir ?
+      </h2>
+      <p class="text-gray-600 text-lg">
+        Choisissez la manière qui vous correspond le mieux pour nous aider à réaliser notre mission
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {options.map((option) => (
+        <div class="bg-emerald-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300">
+          <div class="text-4xl mb-6">{option.icon}</div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">{option.title}</h3>
+          <p class="text-gray-600 mb-6">{option.description}</p>
+          
+          <ul class="space-y-3 mb-8">
+            {option.features.map((feature) => (
+              <li class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          
+          <a
+            href={option.cta.link}
+            class="inline-block bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 transition-colors duration-300"
+          >
+            {option.cta.text}
+            <span class="ml-2">→</span>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+---
+
+<section class="py-24 bg-emerald-50">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">
+      Restez informé de nos actions
+    </h2>
+    <p class="text-gray-600 mb-8">
+      Inscrivez-vous à notre newsletter pour recevoir nos dernières actualités et suivre l'impact de nos projets
+    </p>
+    <form class="max-w-md mx-auto flex gap-4">
+      <input
+        type="email"
+        placeholder="Votre email"
+        required
+        class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+      />
+      <button
+        type="submit"
+        class="bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-300"
+      >
+        S'inscrire
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+document.querySelector('form')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Merci pour votre inscription ! Vous recevrez bientôt nos actualités.');
+});
+</script>
